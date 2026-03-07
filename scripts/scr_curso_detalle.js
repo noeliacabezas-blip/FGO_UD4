@@ -1,5 +1,5 @@
 $(document).ready(function(){	
-	$(".btn-primary").on("click", function(){
+	$(".btn-imprimir").on("click", function(){
 		window.print();
 	});
 });

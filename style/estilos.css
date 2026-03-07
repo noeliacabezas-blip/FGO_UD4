@@ -1,16 +1,14 @@
 /* Reglas de estilo para el sitio web de Formación Global Online */
 /* Reset de estilos básicos*/
 *{
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;	/* mantiene los tamaños de cajas fijos, bordes y rellenos se calculan hacia adentro*/
 }
 
 /* Declaración de propiedades personalizadas, son colores por ejemplo que se usan en diversos atributos*/
 :root{
 	--color-texto: rgb(51,51,51);
-	--color-corporativo-azul-marino: rgb(14,49,81);
-	--color-corporativo-azul-claro: rgb(143,219,248);
+	--color-corporativo-azul-marino: rgb(14,49,81);	
+	--color-corporativo-azul-claro: rgb(227,245,253);
 	--color-corporativo-azul-medio: rgb(11,149,196);
 }
 
@@ -26,56 +24,41 @@
 	background-color: var(--color-corporativo-azul-medio);
 }
 
-
-#carrusel_cursos{
-	width: fit-content;
-	margin: 20 px auto;
-	border-radius: 12px;
-	overflow: hidden;
-}
-
+/* Pone un fondo bajo el título del curso para que se pueda leer bien */
 #carrusel_cursos .carousel-caption {
     background: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
     border-radius: 10px;
     padding: 15px;
-    left: 10%;  /* Ajuste lateral */
-    right: 10%;
-    bottom: 20px; /* Separación del borde inferior */
 	width: fit-content;
-	height: auto;
-	left: 0;
-    right: 0;
-    margin: 0 auto;        /* Centrado horizontal */
-    bottom: 20px;
+	height: auto;	
+    margin: 0 auto;        /* Centrado horizontal */   
 }
 
+/* Se da formato a los botenes de previo y siguiente para que se vean mejor */
 .carousel-control-prev, .carousel-control-next {
-    width: 40px;           /* Ancho fijo del área de clic */
-    height: 40px;          /* Alto fijo */
-    background-color: rgba(0, 0, 0, 1); /* Fondo oscuro circular */
+    width: 45px;           /* Ancho fijo del área de clic */
+    height: 45px;          /* Alto fijo */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro circular */
+	opacity: 1;
     border-radius: 50%;    /* Los hace redondos */
     top: 50%;              /* Centrado vertical */
     transform: translateY(-50%); /* Ajuste perfecto al centro */
-    margin: 0 10px;        /* Los separa un poco del borde de la imagen */
 }
-/*
+
+/* Saca el botón previo para que esté fuera de la imagen y se vea bien */
 .carousel-control-prev{
-	left: 15%;
+	left: -60px;
 }
 
-.carousel-control-next {
-	right: 15%
-}*/
-
-/* Cambiar el tamaño de la flecha interna */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
+/* Saca el botón siguiente para que esté fuera de la imagen y se vea bien */
+.carousel-control-next{
+	right: -60px;
 }
 
 /* Efecto al pasar el ratón */
 .carousel-control-prev:hover, .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
+	opacity: 1;
 }
 
 /* estilo para encabezados de segundo nivel */
@@ -90,8 +73,7 @@ body{
 	font-family: "Open Sans", sans-serif;	
 	line-height: 1.6;
 	color: var(--color-texto);
-	background-color: rgb(244,244,244);
-	/*padding-top: 350px; /*Ajustado según el tamaño del header*/
+	background-color: rgb(244,244,244);	
 }
 
 .card img{	
@@ -99,23 +81,17 @@ body{
 	display: block;
 	margin: 0 auto;
 	/* Fuerzo a que los logos de los cursos tengan todos el mismo tamaño*/
-	width: 338px;
-	height: 225px;
+	width: 100%;
+	max-width: 338px;	
+	aspect-ratio: 3/2;
 	object-fit: cover;
-	object-position: center;
-	
+	object-position: center;	
 }
 
 /* Encabezado y Navegación */
 header {	
-	background-color: white;	
 	font-size: 1.25rem;
-	font-weight: 600;
-	padding: 0.5rem 0.5rem;
-	position: fixed; /*mantenemos siempre fijo el header */
-	z-index: 100;
-	top: 0;
-	width: 100%;	
+	font-weight: 600;		
 }
 
 /* Atributos para el logo tipo banner */
@@ -134,7 +110,7 @@ header img{
 
 /* estilo para encabezados de segundo nivel */
 h2 {
-	font-size: 2rem;
+	font-size: 1.7rem;
 	color: var(--color-corporativo-azul-marino);
 	font-weight: 800;
 	text-align: center;
@@ -145,259 +121,16 @@ h3{
 	font-size: 1.5rem;
 	color: var(--color-corporativo-azul-marino);
 	font-weight: 600;
-	padding-bottom: 15px;
-	text-decoration: underline;
-}
-
-/* estilo para encabezados de versión 2 de tercer nivel (es igual que h3 pero sin subrayado)*/
-.h3_v2{	
-	text-decoration: none;
+	padding-bottom: 15px;	
 }
 
 p{
 	padding-left: 20px; /* en los párrafos se deja un espacio interno dentro de la caja que lo contiene */
 }
 
-/* estilo para articles */
-article{
-	padding: 20px;
-	background-color: var(--color-corporativo-azul-claro);	
-	border-radius: 5px; /*redondea los bordes */
-	box-shadow: 0 2px 5px rgba(0,0,0,0.2);	
-}
-
-/* si el párrafo está dentro de un article */
-article > p {
-	padding-left: 5px;
-	padding-bottom: 15px;
-}
-
-/* los enlaces en un article tendrán el mismo color que el resto del texto, incluso si ya se han visitado */
-article a {
-	color:  var(--color-texto);	
-}
-
-article a:visited {
-	color:  var(--color-texto);
-}
-
-/* Si se pasa el ratón por encima de un enlace en un article se modifica su apariencia */
-article a:hover{
-	color: black; 
-	font-weight: 500;
-}
-
-/* Se establece padding para las listas */
-ul{
-	padding-left: 20px;
-	padding-bottom: 15px;
-}
-li{
-	padding-left: 5px;
-}
-
-/* Las imágenes en estos elementos tendrán un borde */
-article img, .curso-detalle img{
-	border: 3px solid var(--color-corporativo-azul-marino);
-	border-radius: 5px;
-	display: block;
-	margin: 0 auto;
-	/* Fuerzo a que los logos de los cursos tengan todos el mismo tamaño*/
-	width: 338px;
-	height: 225px;
-	object-fit: cover;
-	object-position: center;
-}
-
-/* Clase negrita: cambia el formato del texto a negrita */
-.negrita{
-	font-weight: bold;
-}
-
-/* Clase portada: da formato a la página principal */
-.portada{
-	display: grid;
-	grid-template-columns: 1fr 1fr; /* crea dos columnas iguales */
-	gap: 20px;
-	padding: 20px;	
-}
-
-/* Clase lista-cursos: da formato a la página de listado de cursos */
-.lista-cursos{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr; /*crea tres columnas iguales*/
-	gap: 20px;
-	padding: 20px;
-}
-
-/* Clase enlace-articulo: no se desea que salga subrayado los enlaces */
-.enlace_articulo {
-	text-decoration: none;
-}
-
-/* Clase curso-detalle: para dar formato a la página del detalle de un curso */
-.curso-detalle{	
-	display: grid;	
-	grid-template-columns: 1fr 1.5fr 2.5fr; /*3 columnas: 1ª imagen, 2ª detalles curso, 3ª descripción */
-	gap: 20px;
-	padding: 20px;
-	margin: 20px 20px;
-	align-items: center;
-}
-
-/* Encabezado h3 personalizado en la clase curso-detalle*/
-.curso-detalle h3{
-	grid-column: span 3;
-	text-align: center;
-}
-
-/* Párrafo  personalizado en la clase curso-detalle*/
-.curso-detalle p{
-	padding-bottom: 10px;
-}
-
-/* Para colocar la figure en la clase curso-detalle */
-.curso-detalle figure{	
-	margin: 10px 10px;		
-}
-
-/* Se quitan los marcadores de los elementos de la lista en la clase curso-detalle */
-.curso-detalle ul {	
-	list-style-type: none;	
-}
-
-/* Se da formato a div en la clase curso-detalle */
-.curso-detalle div{		
-	align-self: stretch;
-	border-left: 1px solid var(--color-corporativo-azul-marino);
-	
-}
-
-/* Se da formato a la clase descripción*/
-.descripcion{
-	font-weight: 900;
-	font-size: 1.2rem;
-	font-style: italic;
-}
-
-/* se da formato a la viñeta con circulo y margen */
-.vinneta-circulo li{
-	list-style-type: circle;
-	margin-left: 15px;
-}
-
-
-
-
-/* ---- Diseño Responsible Básico ---*/
-/* -- Móviles --*/
-@media only screen and (max-width: 400px){
-	/* No se fija el banner y el menú en móviles */
-	body{
-		padding-top: 0;
-	}
-	header{
-		position: static; /*no se fija el banner y el menú*/
-	}
-	header img{
-		/*se ajusta tamaño logo para adaptarlo a la pantalla*/
-		width: 90%; 
-		min-width: 150px;
-	}
-	nav{
-		/* se cambia el menú a vertical*/
-		grid-auto-flow: row;
-		grid-template-columns: 1fr;
-		gap: 5px;
-		padding: 10px 0;
-	}
-	nav a{ /*se modifican los elementos del menú de navegación para facilitar su uso en un móvil */
-		padding: 15px 0; 
-		text-align: center;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
-	}
-	h2{
-		font-size: 1.5rem; /* se reduce el tamaño de la fuente para adaptarlo al móvil */
-	}
-	/* se intenta ajustar algo la tabla*/
-	table{
-		width: 100%;
-		font-size: 0.6rem;
-	}
-	th, td{
-		padding: 5px 2px;
-	}
-
-	/* quito las vistas en columnas porque en un móvil no se verán bien */
-	.portada, .lista-cursos, .curso-detalle{
-		grid-template-columns: 1fr;
-		margin: 10px;
-	}
-	
-	/* Se modifica estos detalles para la descripción para que cuadre con la nueva configuración */
-	.curso-detalle div{
-		border-left: none;
-		border-top: 1px solid var(--color-corporativo-azul-marino);
-		padding-top: 10px;
-		padding-left: 0;
-	}
-	.curso-detalle h3{
-		grid-column: span 1;	
-	}
-	article img, .curso-detalle img{
-		max-width: 100%;
-	}	
-}
-
-/* -- Tablets --*/
-@media only screen and (min-width: 401px) and (max-width: 960px){
-	/* No se fija el banner y el menú en tablets, se adapta para tablets estos elementos */
-	body{
-		padding-top: 0;
-	}
-	header{
-		position: static; /*no se fija el banner y el menú*/
-	}
-	header img{
-		/*se ajusta tamaño logo para adaptarlo a la pantalla*/
-		width: 60%; 	
-	}
-	nav{
-		grid-template-columns: 1fr 1fr 1fr; /* 3 columnas iguales */
-		padding-left: 0;
-		text-align: center;
-	}
-	nav a{
-		padding-left: 0;
-		font-size: 1.1rem;
-	}
-	
-	/*ponemos las columnas a 2 y retocamos detalles para mejorar la apariencia o corregirla por cambios en el diseño*/
-	.portada, .lista-cursos{
-		grid-template-columns: 1fr 1fr;
-		gap: 15px;
-	}
-	.lista-cursos img{
-		width: 100%;
-		object-fit: cover;
-	}
-	.curso-detalle{
-		grid-template-columns: 0.75fr 1.25fr;
-	}
-	.curso-detalle h3{
-		grid-column: span 2;	
-	}
-	.curso-detalle figure{
-		margin: 0;
-	}
-	.curso-detalle ul{
-		align-self: center;
-	}
-	.curso-detalle div{
-		grid-column: span 2;
-		border-left: none;
-		border-top: 1px solid var(--color-corporativo-azul-marino);
-		padding-top: 20px;
-		padding-left: 0;
-	}
+@media print {
+    /* 1. Ocultamos el header completo y el botón de imprimir si se imprime la página*/
+    header, .btn{
+        display: none !important;
+    }
 }

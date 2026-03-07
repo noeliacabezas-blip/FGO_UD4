@@ -10,10 +10,10 @@ $(document).ready(function(){
 	$("#nombre").on("blur", function(){
 		if ($(this).val() === ""){			
 			$("#nombre_ayuda").show();
-			$(this).addClass("is-invalid");
+			$(this).addClass("is-invalid").removeClass("is-valid");
 			nombreInvalido=true;
 		}else{
-			$(this).addClass("is-valid");
+			$(this).addClass("is-valid").removeClass("is-invalid");
 		}
 	});
 	
@@ -36,10 +36,10 @@ $(document).ready(function(){
 	$("#correo").on("blur", function(){
 		if (($(this).val() === "") || !validarEmail($(this).val())){			
 			$("#correo_ayuda").show();
-			$(this).addClass("is-invalid");
+			$(this).addClass("is-invalid").removeClass("is-valid");
 			correoInvalido=true;
 		}else{
-			$(this).addClass("is-valid");
+			$(this).addClass("is-valid").removeClass("is-invalid");
 		}
 	});
 	
@@ -56,10 +56,10 @@ $(document).ready(function(){
 	$("#asunto").on("blur", function(){
 		if ($(this).val() === ""){			
 			$("#asunto_ayuda").show();
-			$(this).addClass("is-invalid");
+			$(this).addClass("is-invalid").removeClass("is-valid");
 			asuntoInvalido=true;
 		}else{
-			$(this).addClass("is-valid");
+			$(this).addClass("is-valid").removeClass("is-invalid");
 		}
 	});
 	
@@ -86,10 +86,10 @@ $(document).ready(function(){
 	$("#mensaje").on("blur", function(){
 		if ( contador_caracteres < 300){
 			$("#mensaje_ayuda").show();
-			$(this).addClass("is-invalid");
+			$(this).addClass("is-invalid").removeClass("is-valid");
 			mensajeInvalido=true;			
 		} else{
-			$(this).addClass("is-valid");
+			$(this).addClass("is-valid").removeClass("is-invalid");
 		}		
 	});
 	
@@ -103,50 +103,50 @@ $(document).ready(function(){
 		
 		if ($("#nombre").hasClass("is-valid")){
 			nombre_OK=true;
-			mensaje_info += "\u2705 El campo nombre es correcto.\n";
+			mensaje_info += "\t\u2705 El campo nombre es correcto.\n";
 		} else if (!nombreInvalido){
 			$("#nombre_ayuda").show();
 			$("#nombre").addClass("is-invalid");
 			nombreInvalido=true;
-			mensaje_info += "\u274c El campo nombre no es correcto.\n";
+			mensaje_info += "\t\u274c El campo nombre no es correcto. Por favor, introduzca su nombre.\n";
 		} else{
-			mensaje_info += "\u274c El campo nombre no es correcto.\n";
+			mensaje_info += "\t\u274c El campo nombre no es correcto. Por favor, introduzca su nombre..\n";
 		}
 		
 		if ($("#correo").hasClass("is-valid")){
 			correo_OK=true;
-			mensaje_info += "\u2705  El campo correo es correcto.\n";
+			mensaje_info += "\t\u2705  El campo correo es correcto.\n";
 		} else if (!correoInvalido){
 			$("#correo_ayuda").show();
 			$("#correo").addClass("is-invalid");
 			correoInvalido=true;
-			mensaje_info += "\u274c El campo correo no es correcto.\n";
+			mensaje_info += "\t\u274c El campo correo no es correcto. Por favor, introduzca un correo electrónico.\n";
 		} else{
-			mensaje_info += "\u274c El campo correo no es correcto.\n";
+			mensaje_info += "\t\u274c El campo correo no es correcto. Por favor, introduzca un correo electrónico.\n";
 		}
 		
 		if ($("#asunto").hasClass("is-valid")){
 			asunto_OK=true;
-			mensaje_info += "\u2705 El campo asunto es correcto.\n";
+			mensaje_info += "\t\u2705 El campo asunto es correcto.\n";
 		} else if (!asuntoInvalido){
 			$("#asunto_ayuda").show();
 			$("#asunto").addClass("is-invalid");
 			asuntoInvalido=true;
-			mensaje_info += "\u274c El campo asunto no es correcto.\n";
+			mensaje_info += "\t\u274c El campo asunto no es correcto. Por favor, introduzca un asunto sobre su consulta.\n";
 		}else{
-			mensaje_info += "\u274c El campo asunto no es correcto.\n";
+			mensaje_info += "\t\u274c El campo asunto no es correcto. Por favor, introduzca un asunto sobre su consulta.\n";
 		}
 		
 		if ($("#mensaje").hasClass("is-valid")){
 			mensaje_OK=true;
-			mensaje_info += "\u2705 El campo mensaje es correcto.\n";
+			mensaje_info += "\t\u2705 El campo mensaje es correcto.\n";
 		} else if (!mensajeInvalido){
 			$("#mensaje_ayuda").show();
 			$("#mensaje").addClass("is-invalid");
 			mensajeInvalido=true;
-			mensaje_info += "\u274c* El campo mensaje no es correcto.\n";
+			mensaje_info += "\t\u274c El campo mensaje no es correcto. Por favor, es necesario que el mensaje tenga una longitud mínima de 300 caracteres.\n";
 		}else{
-			mensaje_info += "\u274c El campo mensaje no es correcto.\n";
+			mensaje_info += "\t\u274c El campo mensaje no es correcto. Por favor, es necesario que el mensaje tenga una longitud mínima de 300 caracteres.\n";
 		}
 		
 		if (nombre_OK && correo_OK && asunto_OK && mensaje_OK){

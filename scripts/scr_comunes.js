@@ -19,7 +19,7 @@ $(document).ready(function(){
 		 var fecha = new Date();
         
         // Obtener fecha y hora en formato local 
-        var fechaAhora = fecha.toLocaleString();        
+        var fechaAhora = fecha.toLocaleDateString() + " - " + fecha.toLocaleTimeString();        
        
         // Escribe la fecha en el footer
         $("#txt-fecha").text(fechaAhora);        
