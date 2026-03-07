@@ -1,6 +1,6 @@
 $(document).ready(function(){		
 	// Crea el listado de cursos disponibles en Cards.
-	$.getJSON("./lista_cursos.json", function(cursos){	
+	$.getJSON("data/lista_cursos.json", function(cursos){	
 		$.each(cursos, function(id, curso){
 			$("#contenedorCursos").append(
 				'<div class="col-lg-4 col-md-6 col-sm-12 curso ' + curso.categoria + '">' + 
@@ -46,6 +46,7 @@ $(document).ready(function(){
 		filtrarCursos();
 	});
 });
+
 
 
 
